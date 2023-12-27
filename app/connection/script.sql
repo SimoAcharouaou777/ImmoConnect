@@ -1,4 +1,4 @@
--- Active: 1700211668325@@127.0.0.1@3306@immoconnect
+Active: 1700211668325@@127.0.0.1@3306@immoconnect
 CREATE DATABASE ImmoConnect ;
 
 
