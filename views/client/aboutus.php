@@ -55,7 +55,6 @@ require_once '../partials/navbar.php';
 
             <div class="swiper-container mt-26">
     <div class="swiper-wrapper">
-        <!-- Your card 1 -->
         <div class="swiper-slide">
             <figcaption class="flex items-center justify-center ">
                 <img class="w-19 h-19" src="../../Public/imgs/about-us-testimonials1-83x83 1.png" alt="profile picture">
@@ -67,7 +66,6 @@ require_once '../partials/navbar.php';
             </figcaption>
         </div>
 
-        <!-- Your card 2 -->
         <div class="swiper-slide">
             <figcaption class="flex items-center justify-center p-5">
                 <img class="w-19 h-19" src="../../Public/imgs/about-us-testimonials1-83x83 2.png" alt="profile picture">
@@ -101,7 +99,6 @@ require_once '../partials/navbar.php';
     });
 </script>
 <?php
-
 require_once '../partials/footer.php';
 ?>
 
