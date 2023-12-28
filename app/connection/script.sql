@@ -1,4 +1,4 @@
-Active: 1700211668325@@127.0.0.1@3306@immoconnect
+-- Active: 1700211668325@@127.0.0.1@3306@immoconnect
 CREATE DATABASE ImmoConnect ;
 
 
@@ -29,7 +29,7 @@ CREATE TABLE categories (
     name VARCHAR(255)
 );
 
-CREATE TABLE location (
+CREATE TABLE properties (
     id int PRIMARY KEY AUTO_INCREMENT,
     address VARCHAR (255),
     imageA VARCHAR(255),
@@ -44,6 +44,8 @@ CREATE TABLE location (
     size int , 
     city_id int  ,
     category_id int , 
+    seller_id int,    
+    Foreign Key (seller_id) REFERENCES  users(id) ON DELETE CASCADE ON UPDATE CASCADE ,
     Foreign Key (city_id) REFERENCES cities(id) ON DELETE CASCADE ON UPDATE CASCADE,
     Foreign Key (category_id) REFERENCES categories(id) ON DELETE CASCADE ON UPDATE CASCADE
 )
@@ -56,10 +58,8 @@ CREATE TABLE annonces(
     status VARCHAR(255),
     price FLOAT,
     date date  DEFAULT CURRENT_DATE,
-    seller_id int,
-    location_id int,
-    Foreign Key (seller_id) REFERENCES  users(id) ON DELETE CASCADE ON UPDATE CASCADE ,
-    Foreign Key (location_id) REFERENCES location(id) ON DELETE CASCADE ON UPDATE CASCADE
+    property_id int,
+    Foreign Key (property_id) REFERENCES properties(id) ON DELETE CASCADE ON UPDATE CASCADE
 )
 
 
