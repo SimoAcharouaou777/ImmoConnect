@@ -27,7 +27,7 @@
 <section class="py-12">
     <div class="flex flex-col items-center gap-16">
         <h1 class="text-center text-4xl font-bold">Our choice of popular real estate</h1>
-        <div class="grid grid-cols-3 gap-8 justify-items-center">
+        <div class="grid grid-cols-2 gap-8 justify-items-center">
 
             <div class="max-w-sm bgColor1 border shadow-lg border-gray-300 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
@@ -86,9 +86,6 @@
                 </div>
             </div>
 
-        </div>
-        <div>
-            <button type="button" class="text-white bgColor2 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-base px-8 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Browse More Properties</button>
         </div>
 
     </div>
