@@ -15,15 +15,33 @@
     </div>
     <div class="md:w-1/2">
         <h2 class="text-3xl md:text-5xl color2">VISION</h2>
-        <p class="text-base md:text-2xld">Welcome to QAMIMMOBILIER, the ultimate destination for seamless real estate transactions. Whether you're looking for a dream home or eager to sell or rent your property, QAMIMMOBILIER is here to make the process smooth and efficient.</p>
-        <button type="button" class="bgColor2 text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mt-1">View More</button>
+        <p class="text-base md:text-2xld mt-10">Welcome to QAMIMMOBILIER, the ultimate destination for seamless real estate transactions. Whether you're looking for a dream home or eager to sell or rent your property, QAMIMMOBILIER is here to make the process smooth and efficient.</p>
+        <button type="button" class="bgColor2 text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mt-5">View More</button>
     </div>
 </div>
 
-<div class="flex flex-col md:flex-row justify-around my-8 md:my-16">
     <!-- Your existing code for the data section -->
+    <div class="flex flex-col sm:flex-row justify-around p-20">
+    <div class="flex flex-col items-center justify-center mb-4 sm:mb-0">
+        <dt class="mb-2 text-3xl font-extrabold">$ 980K</dt>
+        <dd class="text-gray-500 dark:text-gray-400">Median sold price</dd>
+    </div>
+    <div class="flex flex-col items-center justify-center mb-4 sm:mb-0">
+        <dt class="mb-2 text-3xl font-extrabold">240</dt>
+        <dd class="text-gray-500 dark:text-gray-400">Properties sold</dd>
+    </div>
+    <div class="flex flex-col items-center justify-center mb-4 sm:mb-0">
+        <dt class="mb-2 text-3xl font-extrabold">$ 680K</dt>
+        <dd class="text-gray-500 dark:text-gray-400">Median leased price</dd>
+    </div>
+    <div class="flex flex-col items-center justify-center">
+        <dt class="mb-2 text-3xl font-extrabold">100</dt>
+        <dd class="text-gray-500 dark:text-gray-400">Properties leased</dd>
+    </div>
+</div>
 
-    <figure class="relative max-w-full bg-center bg-cover transition-all duration-300 mt-16 md:mt-0">
+
+    <figure class="relative max-w-full bg-center bg-cover transition-all duration-300  md:mt-0">
         <a href="#">
             <img class="rounded-lg w-full h-auto md:w-auto" style="filter: blur(1.5px);" src="../../Public/imgs/Couple at home working on a laptop together 1.png" alt="image description">
         </a>
@@ -32,7 +50,7 @@
             <p class="text-sm md:text-xl color1">* Save your time and easily rent or sell your property</p>
         </figcaption>
     </figure>
-</div>
+
 
 <div class="text-center pt-5 text-3xl md:text-5xl color2">
     <h2>Testimonial</h2>
