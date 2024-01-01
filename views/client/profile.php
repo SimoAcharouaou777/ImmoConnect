@@ -2,7 +2,7 @@
 
 
 
-<aside id="logo-sidebar1" class=" fixed top-25 left-0 z-40 w-80 " aria-label="Sidebar">
+<aside id="logo-sidebar1" class=" lg:fixed lg:top-25 lg:left-0 lg:w-80 w-full " aria-label="Sidebar">
 
 <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 bgColor2">
 
@@ -23,10 +23,10 @@
 
 </aside>
 
-<div class="p-4 sm:ml-64">
+<div class="lg:ml-64 p-4 sm:ml-0">
 <section class="py-12">
     <div class="flex flex-col items-center gap-16">
-        <div class="grid grid-cols-2 gap-8 justify-items-center">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
 
             <div class="max-w-sm bgColor1 border shadow-lg border-gray-300 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
