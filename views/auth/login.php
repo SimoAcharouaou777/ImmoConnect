@@ -18,10 +18,8 @@
         flex-shrink: 0;
         
     }
-   
     *{
         font-family: 'Roboto', sans-serif;
-     
     }
     .pageLogin{
        background-image: url('../../Public/imgs/login.jpg'); 
@@ -50,7 +48,7 @@
 <body>
 <div class="pageLogin md:p-10 pt-20 m-8 ">
   <form class="lg:w-1/4   md:w-2/4 w-full  mx-auto block  px-14 p-10  h-fit " action="#">
-        <h3 class="text-5xl font-bold text-center  leading-9  ">LOGIN FORM</h3>
+        <h3 class="text-5xl font-bold text-center  leading-9  ">LOGIN </h3>
         <div class="mt-10">
             <label for="email" class="block mb-2 text-stone-50 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
             <input type="email" name="email" id="email" class="bg-gray-50 border w-64	h-14	 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@exemple.com" required>
