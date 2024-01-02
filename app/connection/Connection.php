@@ -21,7 +21,7 @@ class Connection
             $username = $_ENV['DB_USER'];
             $password = $_ENV['DB_PASSWORD'];
             $dbname = $_ENV['DB_NAME'];
-            $connection = mysqli_connect($servername, $username, $password, $dbname);
+            $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     
             // Check connection
             if (!$connection) {
@@ -39,6 +39,7 @@ class Connection
         }
 
 }
+
 
 
 
