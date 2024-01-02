@@ -84,6 +84,7 @@ class User
 
     public function createUser()
     {
+
                 $query = "INSERT INTO `users` (firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
                 
                 $stmt = $this->db->prepare($query);
@@ -95,6 +96,7 @@ class User
                 $stmt->bindParam(4, $this->password);
                 $stmt->execute();
            
+
 
     }
     
