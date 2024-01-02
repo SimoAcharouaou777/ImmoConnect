@@ -16,6 +16,7 @@ $router->setRoutes([
         'date' => ['HomeController', 'displayDate'],
         'hello' =>['AuthController','Hello'],
         'admin/city' =>['CityController','getAllCities'],
+        'admin/category' =>['CategoryController','getAll'],
         'addCity' =>['CityController','Hello'],
     ],
     'POST' => [
