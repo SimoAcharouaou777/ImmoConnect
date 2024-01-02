@@ -13,14 +13,33 @@ $dotenv->load();
 class Connection
 {
 
-    public static function connection()
-    {
-        return  new PDO("mysql:host={$_ENV['DB_HOST']};dbname={$_ENV['DB_NAME']}", $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
-         
-    }
+    private static $instance;
+    public static $count = 0;
+
+    private function __construct(){
+            $servername = $_ENV['DB_HOST'];
+            $username = $_ENV['DB_USER'];
+            $password = $_ENV['DB_PASSWORD'];
+            $dbname = $_ENV['DB_NAME'];
+            $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    
+            // Check connection
+            if (!$connection) {
+                die("Connection failed: " . mysqli_connect_error());
+            }else{
+                echo"donnnnnnnnnnne";
+                return $connection;
+            }
+        }
+        public static function getInstence(){
+            if(!isset(self::$instance)){
+                self::$instance = new Connection();
+            }
+            return self::$instance;
+        }
 
 }
 
-// $data= new connection();
 
-// var_dump($data->connection());
+
+
