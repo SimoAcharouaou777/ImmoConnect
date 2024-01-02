@@ -38,10 +38,6 @@ class AuthController
 
 }
 
-
-
-
-
  if (isset($_POST['submit_register'])) {
         $auth = new AuthController();
         $auth->register($_POST["firstname"],$_POST["lastname"],$_POST["email"],$_POST["password"]);
