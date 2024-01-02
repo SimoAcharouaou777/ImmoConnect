@@ -58,7 +58,7 @@ class User
     {
         $sql = "SELECT users.*, roles.name FROM users WHERE email = :email
         INNER JOIN roles ON users.role_id = roles.id";
-         $statement = $db->prepare($sql);
+         $statement = $this->db->prepare($sql);
          $statement->bindParam(':email', $email, PDO::PARAM_STR);
          if ($statement) {
             $statement->execute();
@@ -74,9 +74,6 @@ class User
             } else {
                 return null;
             }
-        } else {
-            $errorInfo = $connect->errorInfo();
-            echo "error: " . $errorInfo[2];
         }
 
 
@@ -105,7 +102,7 @@ class User
     {
         $sql = "SELECT users.*, roles.name FROM users
         INNER JOIN roles ON users.role_id = roles.id";
-         $statement = $db->prepare($sql);
+         $statement = $this->db->prepare($sql);
          if ($statement) {
             $statement->execute();
             $resultInstances = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -120,10 +117,7 @@ class User
             } else {
                 return null;
             }
-        } else {
-            $errorInfo = $connect->errorInfo();
-            echo "error: " . $errorInfo[2];
-        }
+        } 
     }
 }
 
