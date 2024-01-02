@@ -39,11 +39,4 @@ class Connection
             return self::$instance;
         }
 
-        public function getConnect(){
-           return $this->connection;
-        }
-
 }
-?>
-
-
