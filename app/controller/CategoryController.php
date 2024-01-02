@@ -25,7 +25,8 @@ class CategoryController {
     }
     public function getAll(){
         $category= new Category(null,null);
-        return $category->getCategories();
+        $categories= $category->getCategories();
+        require_once '../../views/admin/category.php';
     }
 
     public function update($id,$name){

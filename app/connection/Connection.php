@@ -1,4 +1,5 @@
 <?php
+
 namespace app\connection;
 
 use PDO;
@@ -21,7 +22,6 @@ class Connection
             $username = $_ENV['DB_USER'];
             $password = $_ENV['DB_PASSWORD'];
             $dbname = $_ENV['DB_NAME'];
-
             $this->connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     
             // Check connection
@@ -39,10 +39,8 @@ class Connection
             return self::$instance;
         }
 
+        public function getConnect(){
+           return $this->connection;
+        }
+
 }
-<<<<<<< HEAD
-=======
-
-?>
-
->>>>>>> 0c6c0c4b55eab65aeae9d260ed99fadf3b9f8052
