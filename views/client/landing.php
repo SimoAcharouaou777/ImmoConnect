@@ -142,7 +142,7 @@ require_once '../partials/navbar.php';
         </div>
     <section>
 
-    <section class="py-12 flex flex-col items-center gap-10">
+    <section class="py-12 flex flex-col items-center gap-10 overflow-hidden">
     <h1 class="text-center text-4xl font-bold">Our Partners</h1>
     <div class="source">
       <div class="source-slider">

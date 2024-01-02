@@ -2,6 +2,7 @@
 
 namespace app\controller;
 
+
 include __DIR__ . '/../../vendor/autoload.php';
 
 use app\model\User;
@@ -28,21 +29,14 @@ class AuthController
 
     }
 
+    public static function AllUsers()
+    {
+        $allUsers = new User($firstname, $lastname, $email,$password , $phone , $profile);
+        return   $allUsers->getAllUsers();
+       
+    }
 
-
-
-    // public function AllUsers()
-    // {
-
-    //     $allUsers = new User(null, null, null);
-    //     return   $allUsers->getAllUsers();
-    //     // var_dump($allUsers->getAllUsers());
-    // }
 }
-
-
-
-
 
  if (isset($_POST['submit_register'])) {
         $auth = new AuthController();

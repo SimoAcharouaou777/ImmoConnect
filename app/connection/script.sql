@@ -4,7 +4,7 @@ CREATE DATABASE ImmoConnect ;
 
 CREATE TABLE roles (
     id int PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50)
+    name VARCHAR (50)
 );
 
 CREATE TABLE users (
