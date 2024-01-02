@@ -5,11 +5,12 @@ namespace app\model;
 include __DIR__ . '/../../vendor/autoload.php';
 
 use app\connection\Connection;
-
+use PDO;
 class User
 {
 
     private $db;
+    private $id;
     private $firstname;
     private $lastname;
     private $email;
@@ -44,9 +45,10 @@ class User
 
     
 
-    public function __construct($firstname, $lastname, $email, $password, $phone, $profile)
+    public function __construct($id,$firstname, $lastname, $email, $password, $phone, $profile)
     {
         $this->db = Connection::getInstence()->getConnect();
+        $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->email = $email;
@@ -66,7 +68,7 @@ class User
             if ($resultInstances) {
                 $users = [];
                 foreach ($resultInstances as $key => $result) {
-                    $userInstance = new User($result['id'], $result['username'], $result['fullname'],
+                    $userInstance = new User($result['id'], $result['firstname'], $result['fullname'],
                         $result['email'], $result['password'], $result['phone'],$result['profile']);
                     $users[] = $userInstance;
                 }
@@ -109,7 +111,7 @@ class User
             if ($resultInstances) {
                 $users = [];
                 foreach ($resultInstances as $key => $result) {
-                    $userInstance = new User($result['id'], $result['username'], $result['fullname'],
+                    $userInstance = new User($result['id'], $result['firstname'], $result['fullname'],
                         $result['email'], $result['password'], $result['phone'],$result['profile']);
                     $users[] = $userInstance;
                 }
