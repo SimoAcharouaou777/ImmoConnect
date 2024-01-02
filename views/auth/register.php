@@ -47,7 +47,7 @@
 
 <body>
 <div class="pageLogin md:p-10 pt-20 m-8  ">
-  <form class="lg:w-2/4   md:w-2/4 w-full  mx-auto block  px-14 p-10  h-fit " action="#">
+  <form class="lg:w-2/4   md:w-2/4 w-full  mx-auto block  px-14 p-10  h-fit " action="../../app/controller/AuthController.php" method="post">
         <h3 class="text-5xl font-bold text-center  leading-9  ">SINGN UP</h3>   
        
     <div class="grid md:grid-cols-2 md:gap-6">
@@ -62,7 +62,7 @@
      </div>
      <div>
             <label for="email" class="block mb-2 text-stone-50 text-sm font-medium text-gray-900 dark:text-white">email</label>
-            <input type="email" name="first name" id="firstN" class="bg-gray-50 border w-64	h-14	 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="first name" required>
+            <input type="email" name="email" id="firstN" class="bg-gray-50 border w-64	h-14	 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="first name" required>
         </div>
     <div class="flex grid md:grid-cols-2 md:gap-6">
          <div class="mt-10">
@@ -75,7 +75,7 @@
         </div>
     </div>
        
-        <button type="submit" class="w-full md:mt-10   text-white bg-blue-950 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
+        <button type="submit" name="submit_register" class="w-full md:mt-10   text-white bg-blue-950 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
         <div class="text-center md:mt-10 font-medium mx-auto block  text-gray-500 dark:text-gray-300">
         <i class="fa-brands fa-x-twitter  text-3xl "></i>
         <i class="fa-brands fa-facebook text-3xl "></i>
