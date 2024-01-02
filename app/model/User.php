@@ -26,7 +26,7 @@ class User
 
     public function __construct($firstname , $lastname , $email , $password , $phone , $profile)
     {
-        $this->db = Connection::getInstence();
+        $this->db = Connection::getInstence()->getConnect();
         $this->firstname = $firstname;
         $this->lastname  = $lastname;
         $this->email = $email;
@@ -43,9 +43,21 @@ class User
 
     public function createUser()
     {
-       
-       
+        
+            
+                $query = "INSERT INTO `users` (firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
+                
+                $stmt = $this->db->prepare($query);
+        
+              
+                $stmt->bindParam(1, $this->firstname);
+                $stmt->bindParam(2, $this->lastname);
+                $stmt->bindParam(3, $this->email);
+                $stmt->bindParam(4, $this->password);
+                $stmt->execute();
+           
     }
+    
 
     public function getAllUsers()
     {
