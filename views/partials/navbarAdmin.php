@@ -54,7 +54,7 @@
                     <a href="https://flowbite.com" class="flex ms-2 md:me-24">
                         <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" /> -->
                         <!-- <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">LOGO</span> -->
-                        <img src="/immoconnect/public/imgs/logo2.png" class="w-24" alt="Flowbite Logo">
+                        <img src="<?= __DIR__.'/../../public/imgs/logo2.png'?>" class="w-24" alt="Flowbite Logo">
 
                     </a>
                 </div>
@@ -122,12 +122,8 @@
                 </li>
                 <li>
                     <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:border border-sky-500 ease-in duration-300 group">
-                    <lord-icon
-    src="https://cdn.lordicon.com/heexevev.json"
-    trigger="loop"
-    delay="4000"
-    style="width:30px;height:30px">
-</lord-icon>
+                        <lord-icon src="https://cdn.lordicon.com/heexevev.json" trigger="loop" delay="4000" style="width:30px;height:30px">
+                        </lord-icon>
                         <span class="ms-3  font-bold">Reservations</span>
                     </a>
                 </li>
