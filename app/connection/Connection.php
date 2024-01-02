@@ -28,7 +28,7 @@ class Connection
             if (!$this->connection) {
                 die("Connection failed: " . mysqli_connect_error());
             }else{
-                // echo"donnnnnnnnnnne";
+                echo"donnnnnnnnnnne";
                 // return $connection;
             }
         }
@@ -44,6 +44,4 @@ class Connection
         }
 
 }
-
-
-Connection::getInstence()->getConnect();
+?>
