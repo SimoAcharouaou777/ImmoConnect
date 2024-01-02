@@ -1,15 +1,10 @@
 <?php
 
-
-
 namespace app\model;
 
 include __DIR__ . '/../../vendor/autoload.php';
 
 use app\connection\Connection;
-
-use PDO;
-
 
 class User
 {
@@ -21,38 +16,101 @@ class User
     private $password;
     private $phone;
     private $profile;
+
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+    public function getEmail()
+    {
+        return $this->email;
+    }
+    public function getPassword()
+    {
+        return $this->password;
+    }
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+    public function getProfile()
+    {
+        return $this->profile;
+    }
+
     
 
-
-    public function __construct($firstname , $lastname , $email , $password , $phone , $profile)
+    public function __construct($firstname, $lastname, $email, $password, $phone, $profile)
     {
-        $this->db = Connection::getInstence();
+        $this->db = Connection::getInstence()->getConnect();
         $this->firstname = $firstname;
-        $this->lastname  = $lastname;
+        $this->lastname = $lastname;
         $this->email = $email;
         $this->password = $password;
         $this->phone = $phone;
         $this->profile = $profile;
     }
-    public function getUserByEmail()
+    public function getUserByEmail($email)
     {
+        $sql = "SELECT users.*, roles.name FROM users WHERE email = :email
+        INNER JOIN roles ON users.role_id = roles.id";
+         $statement = $db->prepare($sql);
+         $statement->bindParam(':email', $email, PDO::PARAM_STR);
+         if ($statement) {
+            $statement->execute();
+            $resultInstances = $statement->fetchAll(PDO::FETCH_ASSOC);
+            if ($resultInstances) {
+                $users = [];
+                foreach ($resultInstances as $key => $result) {
+                    $userInstance = new User($result['id'], $result['username'], $result['fullname'],
+                        $result['email'], $result['password'], $result['phone'],$result['profile']);
+                    $users[] = $userInstance;
+                }
+                return $users;
+            } else {
+                return null;
+            }
+        } else {
+            $errorInfo = $connect->errorInfo();
+            echo "error: " . $errorInfo[2];
+        }
 
-    
-     
+
     }
 
     public function createUser()
     {
-       
-       
+
     }
 
     public function getAllUsers()
     {
-     
-       
+        $sql = "SELECT users.*, roles.name FROM users
+        INNER JOIN roles ON users.role_id = roles.id";
+         $statement = $db->prepare($sql);
+         if ($statement) {
+            $statement->execute();
+            $resultInstances = $statement->fetchAll(PDO::FETCH_ASSOC);
+            if ($resultInstances) {
+                $users = [];
+                foreach ($resultInstances as $key => $result) {
+                    $userInstance = new User($result['id'], $result['username'], $result['fullname'],
+                        $result['email'], $result['password'], $result['phone'],$result['profile']);
+                    $users[] = $userInstance;
+                }
+                return $users;
+            } else {
+                return null;
+            }
+        } else {
+            $errorInfo = $connect->errorInfo();
+            echo "error: " . $errorInfo[2];
+        }
     }
 }
 
 
-// $user= new User("ali","email","password");
