@@ -15,7 +15,8 @@ $router->setRoutes([
         '' => ['HomeController', 'index'],
         'date' => ['HomeController', 'displayDate'],
         'hello' =>['AuthController','Hello'],
-        'hayawane'=>['AuthController','Animal']
+        'admin/city' =>['CityController','getAllCities'],
+        'addCity' =>['CityController','Hello'],
     ],
     'POST' => [
         'submit' => ['HomeController', 'save']
