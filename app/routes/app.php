@@ -14,19 +14,23 @@ $router->setRoutes([
     'GET' => [
         '' => ['HomeController', 'index'],
         'Profile' => ['ProfileController', 'index'],
+        'date' => ['HomeController', 'displayDate'],
+        'hello' =>['AuthController','Hello'],
+
 
         'admin/city' =>['CityController','getAllCities'],
         'admin/add/city' =>['CityController','addCity'],
         'admin/delete/city' =>['CityController','deleteCity'],
         'admin/edit/city' =>['CityController','getCity'],
-
         'admin/category' =>['CategoryController','getAll'],
         'admin/add/category' =>['CategoryController','addCategory'],
         'admin/delete/category' =>['CategoryController','delete'],
         'admin/edit/category' =>['CategoryController','getCategory'],
-    
+
         'login' => ['RouterAuthrnfication','indexlogin'],
-        'register'=>['RouterAuthrnfication','indexregister']
+        'register'=>['RouterAuthrnfication','indexregister'],
+
+        'addCity' =>['CityController','Hello'],
     ],
     'POST' => [
         'submit' => ['HomeController', 'save'],
@@ -40,6 +44,7 @@ $router->setRoutes([
 
         'user/login' =>['AuthController','login'],
         'user/register'=>['AuthController','Register']
+
     ]
 ]);
 
