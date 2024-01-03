@@ -59,7 +59,7 @@ class User
     {
         $sql = "SELECT users.*, roles.name as role FROM users
         LEFT JOIN roles ON users.role_id = roles.id
-        WHERE email = :email";
+        WHERE users.email = :email";
         $statement = $this->db->prepare($sql);
         $statement->bindParam(':email', $email, PDO::PARAM_STR);
         if ($statement) {
@@ -83,7 +83,7 @@ class User
     public function createUser()
     {
 
-        $query = "INSERT INTO `users` (firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO `users` (firstname, lastname, email, password,role_id) VALUES (?, ?, ?, ?,3 )";
 
         $stmt = $this->db->prepare($query);
 
@@ -133,5 +133,19 @@ class User
         $statemnt->bindParam(':id', $id, PDO::PARAM_INT);
         $statemnt->execute();
     }
+
+
+    public function getUserByUsername(){ 
+        $sql="SELECT r.*, r.name AS r FROM users as u
+        INNER JOIN roles as r ON r.id = u.role_id WHERE u.email =? ";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$this->email]);
+        $row = $stmt->fetch(PDO::FETCH_OBJ);
+        // $stmt->closeCursor();
+        return $row;
+        
+    }
+
+
 }
 
