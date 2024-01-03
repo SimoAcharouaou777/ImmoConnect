@@ -44,8 +44,9 @@ class AuthController
          $profile = $_POST['profile'];
         User::updateUser($id,$firstname , $lastname,$email , null , $phone , $profile);
     }
-    public static function showUserByEmail(){
-        
+    public  function showUserByEmail($email){
+        $userModel = new User(null , null , null , $email , null , null, null );
+        return $users= $userModel->getUserByEmail($email);
     }
 }
 

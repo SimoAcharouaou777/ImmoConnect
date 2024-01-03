@@ -6,8 +6,6 @@ class ProfileController
     public function index()
     {
       
-        
-
         include '../../views/client/sellerProfileEdit.php';
     }
 }
