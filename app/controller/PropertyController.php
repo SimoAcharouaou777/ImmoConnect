@@ -100,7 +100,8 @@ class PropertyController{
     public function getAllProperties()
     {
         $property = new Property(null, null, null, null, null, null, null, null, null, null, null,null, null, null,null);
-        $property->getproperties();
+        $properties = $property->getproperties();
+        require_once '../../views/admin/property.php';
     }
 
     public function deleteProperty($id)

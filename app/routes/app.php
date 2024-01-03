@@ -20,6 +20,9 @@ $router->setRoutes([
         'admin/delete/category' =>['CategoryController','delete'],
         'admin/edit/category' =>['CategoryController','getCategory'],
         'addCity' =>['CityController','Hello'],
+
+        'admin/property' =>['PropertyController','getAllProperties'],
+        'admin/edit/property' =>['PropertyController','getProperty'],
     ],
     'POST' => [
         'submit' => ['HomeController', 'save'],

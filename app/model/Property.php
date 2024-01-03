@@ -226,13 +226,19 @@ class Property {
     
     }
 
-    public function getproperties()
-    {
-        $stmt = $this->db->prepare("SELECT * from  properties");
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
-        return $result;
-    }
+    public function getProperties()
+{
+    $stmt = $this->db->prepare("SELECT p.*, u.firstName as firstName, u.lastName as lastName, ca.name AS category_name, c.name AS city_name 
+        FROM properties p 
+        JOIN users u ON u.id = p.seller_id
+        JOIN cities c ON c.id = p.city_id
+        JOIN categories ca ON ca.id = p.category_id");
+
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
 
 
 
