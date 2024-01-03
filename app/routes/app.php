@@ -15,8 +15,8 @@ $router->setRoutes([
         '' => ['HomeController', 'index'],
         'Profile' => ['ProfileController', 'index'],
         'admin/city' =>['CityController','getAllCities'],
+        'admin/category' =>['CategoryController','getAll'],
         'addCity' =>['CityController','Hello']
-        
     ],
     'POST' => [
         'submit' => ['HomeController', 'save'],
