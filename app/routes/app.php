@@ -20,10 +20,14 @@ $router->setRoutes([
         'admin/delete/category' =>['CategoryController','delete'],
         'admin/edit/category' =>['CategoryController','getCategory'],
         'addCity' =>['CityController','Hello'],
+        'Profile' => ['AuthController','showUserByEmail'],
+        'landing' => ['LandingController','landing'],
+        'details' =>['DetailsController','details']
     ],
     'POST' => [
         'submit' => ['HomeController', 'save'],
-        'edituser' => ['AuthController','updateUser']
+        'edituser' => ['AuthController','updateUser'],
+        'user/updtae/profile' => ['AuthController','updateUser']
     ]
 ]);
 

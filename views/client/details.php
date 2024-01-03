@@ -1,6 +1,6 @@
 <?php
 
-require_once '../partials/navbar.php';
+require_once(__DIR__ . '/../partials/navbar.php');
 ?>
 <section class="p-10 m-10">
     <div class="md:flex flex-row gap-4 ">
@@ -79,5 +79,5 @@ require_once '../partials/navbar.php';
 
 <?php
 
-require_once '../partials/footer.php';
+require_once(__DIR__ . '/../partials/footer.php');
 ?>

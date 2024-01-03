@@ -26,7 +26,7 @@ class AuthController
 
     public function login($email, $password)
     {
-
+        
     }
 
     public static function AllUsers()
@@ -36,17 +36,26 @@ class AuthController
        
     }
     public static function updateUser(){
+        
         $id = $_POST['id'];
-        $firstname =  $_POST["firstname"];
-         $lastname =  $_POST["lastname"];
-         $email =  $_POST["email"];
-         $phone = $_POST['phone'];
-         $profile = $_POST['profile'];
-        User::updateUser($id,$firstname , $lastname,$email , null , $phone , $profile);
+        $firstname = $_POST["firstname"];
+        $lastname = $_POST["lastname"];
+        $email = $_POST["email"];
+        $phone = $_POST['phone'];
+        $profile = $_POST['profile'];
+        User::updateUser($id, $firstname, $lastname, $email, null, $phone, $profile);
+        header("location:Profile");
     }
-    public  function showUserByEmail($email){
+   
+      
+       
+    
+    public  function showUserByEmail(){
+        $email = $_SESSION['email'];
         $userModel = new User(null , null , null , $email , null , null, null );
-        return $users= $userModel->getUserByEmail($email);
+         $user= $userModel->getUserByEmail($email);
+
+        include '../../views/client/sellerProfileEdit.php';
     }
 }
 
