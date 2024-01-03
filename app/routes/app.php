@@ -13,12 +13,24 @@ $router = new Router();
 $router->setRoutes([
     'GET' => [
         '' => ['HomeController', 'index'],
+        'Profile' => ['ProfileController', 'index'],
         'date' => ['HomeController', 'displayDate'],
         'hello' =>['AuthController','Hello'],
+
+
         'admin/city' =>['CityController','getAllCities'],
+        'admin/add/city' =>['CityController','addCity'],
+        'admin/delete/city' =>['CityController','deleteCity'],
+        'admin/edit/city' =>['CityController','getCity'],
+
         'admin/category' =>['CategoryController','getAll'],
+        'admin/add/category' =>['CategoryController','addCategory'],
         'admin/delete/category' =>['CategoryController','delete'],
         'admin/edit/category' =>['CategoryController','getCategory'],
+
+        'login' => ['RouterAuthrnfication','indexlogin'],
+        'register'=>['RouterAuthrnfication','indexregister'],
+
         'addCity' =>['CityController','Hello'],
         'Profile' => ['AuthController','showUserByEmail'],
         'landing' => ['LandingController','landing'],
@@ -27,7 +39,17 @@ $router->setRoutes([
     'POST' => [
         'submit' => ['HomeController', 'save'],
         'edituser' => ['AuthController','updateUser'],
-        'user/updtae/profile' => ['AuthController','updateUser']
+        'user/updtae/profile' => ['AuthController','updateUser'],
+        
+        'admin/update/category' =>['CategoryController','update'],
+        'admin/add/category' =>['CategoryController','add'],
+
+        'admin/update/city' =>['CityController','updateCity'],
+        'admin/add/city' =>['CityController','add'],
+
+        'user/login' =>['AuthController','login'],
+        'user/register'=>['AuthController','Register']
+
     ]
 ]);
 
