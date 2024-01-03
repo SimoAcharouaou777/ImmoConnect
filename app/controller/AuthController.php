@@ -18,7 +18,7 @@ class AuthController
     public function Register($firstname,$lastname,$email,$password)
     {
         $password = password_hash($password,PASSWORD_DEFAULT);
-        $objuser= new User($firstname,$lastname,$email,$password,null,null);
+        $objuser= new User(null,$firstname,$lastname,$email,$password,null,null);
         $objuser->createUser();
             header("location:../../views/auth/login.php");
     }
@@ -31,7 +31,7 @@ class AuthController
 
     public static function AllUsers()
     {
-        $allUsers = new User($firstname, $lastname, $email,$password , $phone , $profile);
+        $allUsers = new User(null,null, null, null,null , null , null);
         return   $allUsers->getAllUsers();
        
     }
@@ -42,7 +42,7 @@ class AuthController
          $email =  $_POST["email"];
          $phone = $_POST['phone'];
          $profile = $_POST['profile'];
-        User::updateUser($id,$firstname , $lastname,$email , $password , $phone , $profile);
+        User::updateUser($id,$firstname , $lastname,$email , null , $phone , $profile);
     }
     public static function showUserByEmail($email){
         return $users= User::getUserByEmail($email);
