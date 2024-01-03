@@ -22,7 +22,7 @@
         font-family: 'Roboto', sans-serif;
     }
     .pageLogin{
-       background-image: url('../../Public/imgs/login.jpg'); 
+       background-image: url('Public/imgs/login.jpg'); 
        background-size: cover;
        height: 93vh;
        border: 0px solid var(--color4, #000);
@@ -47,7 +47,7 @@
 
 <body>
 <div class="pageLogin md:p-10 pt-20 m-8  ">
-  <form class="lg:w-2/4   md:w-2/4 w-full  mx-auto block  px-14 p-10  h-fit " action="../../app/controller/AuthController.php" method="post">
+  <form class="lg:w-2/4   md:w-2/4 w-full  mx-auto block  px-14 p-10  h-fit " action="user/register" method="post">
         <h3 class="text-5xl font-bold text-center  leading-9  ">SINGN UP</h3>   
        
     <div class="grid md:grid-cols-2 md:gap-6">
@@ -75,7 +75,7 @@
         </div>
     </div>
        
-        <button type="submit" name="submit_register" class="w-full md:mt-10   text-white bg-blue-950 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
+        <button type="submit" name="submit_register" class="w-full md:mt-10   text-white bg-blue-950 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">register</button>
         <div class="text-center md:mt-10 font-medium mx-auto block  text-gray-500 dark:text-gray-300">
         <i class="fa-brands fa-x-twitter  text-3xl "></i>
         <i class="fa-brands fa-facebook text-3xl "></i>
