@@ -57,7 +57,7 @@ class User
     }
     public  function getUserByEmail($email)
     {
-        $sql = "SELECT users.*, roles.name FROM users
+        $sql = "SELECT users.*, roles.name as role FROM users
         LEFT JOIN roles ON users.role_id = roles.id
         WHERE email = :email";
         $statement = $this->db->prepare($sql);
@@ -65,20 +65,20 @@ class User
         if ($statement) {
             $statement->execute();
             $resultInstances = $statement->fetchAll(PDO::FETCH_ASSOC);
-            if ($resultInstances) {
-                $users = [];
-                foreach ($resultInstances as $key => $result) {
-                    $userInstance = new User($result['id'], $result['firstname'], $result['lastname'],
-                        $result['email'], $result['password'], $result['phone'], $result['profile']);
-                    $users[] = $userInstance;
-                }
-                return $users;
+            // if ($resultInstances) {
+            //     $users = [];
+            //     foreach ($resultInstances as $key => $result) {
+            //         $userInstance = new User($result['id'], $result['firstname'], $result['lastname'],
+            //             $result['email'], $result['password'], $result['phone'], $result['profile']);
+            //         $users[] = $userInstance;
+            //     }
+                return $resultInstances;
             } else {
                 return null;
             }
         }
 
-    }
+    
 
     public function createUser()
     {
