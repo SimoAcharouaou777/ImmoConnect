@@ -1,4 +1,4 @@
--- Active: 1700211668325@@127.0.0.1@3306@immoconnect
+-- Active: 1704309211331@@127.0.0.1@3306@immoconnect
 CREATE DATABASE ImmoConnect ;
 
 
@@ -99,4 +99,15 @@ CREATE TABLE messages(
     transmitter_id int,
     Foreign Key (reciver_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
     Foreign Key (transmitter_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
+)
+
+CREATE TABLE replies(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    message VARCHAR(255),
+    reciver_id int,
+    transmitter_id int,
+    message_id int,
+    Foreign Key (reciver_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    Foreign Key (transmitter_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    Foreign Key (message_id) REFERENCES messages(id) ON DELETE CASCADE ON UPDATE CASCADE
 )
