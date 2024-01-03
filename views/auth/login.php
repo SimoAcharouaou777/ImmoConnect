@@ -47,7 +47,7 @@
 
 <body>
 <div class="pageLogin md:p-10 pt-20 m-8 ">
-  <form class="lg:w-1/4   md:w-2/4 w-full  mx-auto block  px-14 p-10  h-fit " action="#">
+  <form class="lg:w-1/4   md:w-2/4 w-full  mx-auto block  px-14 p-10  h-fit " action="../../app/controller/AuthController.php" method="post">
         <h3 class="text-5xl font-bold text-center  leading-9  ">LOGIN </h3>
         <div class="mt-10">
             <label for="email" class="block mb-2 text-stone-50 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
@@ -57,7 +57,7 @@
             <label for="password" class="block mb-2 text-stone-50 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
             <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border w-64	h-14   border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-600 dark:border-gray-500 w-full dark:placeholder-gray-400 dark:text-white" required>
         </div>
-        <button type="submit" class="w-full md:mt-10   text-white bg-blue-950 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
+        <button type="submit" name="login_submit" class="w-full md:mt-10   text-white bg-blue-950 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
         <div class="text-center md:mt-10 font-medium mx-auto block  text-gray-500 dark:text-gray-300">
         <i class="fa-brands fa-x-twitter  text-3xl "></i>
         <i class="fa-brands fa-facebook text-3xl "></i>

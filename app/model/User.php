@@ -82,7 +82,7 @@ class User
     public function createUser()
     {
 
-        $query = "INSERT INTO `users` (firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO `users` (firstname, lastname, email, password,role_id) VALUES (?, ?, ?, ?,3 )";
 
         $stmt = $this->db->prepare($query);
 
@@ -132,5 +132,20 @@ class User
         $statemnt->bindParam(':id', $id, PDO::PARAM_INT);
         $statemnt->execute();
     }
+
+
+    public function getUserByUsername(){ 
+        $sql="SELECT users.*, roles.name AS role_name FROM users
+        INNER JOIN roles ON roles.id = users.role_id WHERE email = ? ";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(1, $this->email);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        // $stmt->closeCursor();
+        return $row;
+        
+    }
+
+
 }
 

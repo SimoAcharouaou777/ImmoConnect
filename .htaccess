@@ -1,25 +1,25 @@
-# Activer le module de réécriture d'URL (mod_rewrite)
+# # Activer le module de réécriture d'URL (mod_rewrite)
 
-RewriteEngine On
+# RewriteEngine On
 
-# Définir le fichier à utiliser comme page d'index par défaut
+# # Définir le fichier à utiliser comme page d'index par défaut
 
-DirectoryIndex app/routes/app.php
+# DirectoryIndex app/routes/app.php
 
-# Rediriger toutes les requêtes vers app/routes/App.php?url=<requete>
-# - ^(.*)$ : Capturer toute l'URL demandée
-# - app/routes/App.php?url=$1 : Rediriger vers App.php avec l'URL capturée comme paramètre "url"
-# - [QSA,L] : Ajouter les arguments de chaîne de requête (QSA) et terminer la réécriture (L)
+# # Rediriger toutes les requêtes vers app/routes/App.php?url=<requete>
+# # - ^(.*)$ : Capturer toute l'URL demandée
+# # - app/routes/App.php?url=$1 : Rediriger vers App.php avec l'URL capturée comme paramètre "url"
+# # - [QSA,L] : Ajouter les arguments de chaîne de requête (QSA) et terminer la réécriture (L)
 
-RewriteRule ^(.*)$ app/routes/app.php?url=$1 [QSA,L]
-
-
+# RewriteRule ^(.*)$ app/routes/app.php?url=$1 [QSA,L]
 
 
 
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
-</IfModule>
+
+
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#     RewriteCond %{REQUEST_FILENAME} !-d
+#     RewriteCond %{REQUEST_FILENAME} !-f
+#     RewriteRule ^ index.php [L]
+# </IfModule>
