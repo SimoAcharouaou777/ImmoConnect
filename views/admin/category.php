@@ -19,17 +19,17 @@ require_once __DIR__.'/../partials/navbarAdmin.php';
             </tr>
         </thead>
         <tbody>
-            <?php foreach($categories as $city){?>
+            <?php foreach($categories as $cat){?>
             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <?=$city->id?>
+                <th scope="row" class="px-6 py-4 font-medium  whitespace-nowrap dark:text-white">
+                    <?=$cat->id?>
                 </th>
                 <td class="px-6 py-4">
-                <?=$city->name?>
+                <?=$cat->name?>
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                    <a href="edit/category?id=<?=$cat->id?>" class="p-2 px-4 bg-green-500">Edit</a>
+                    <a href="delete/category?id=<?=$cat->id?>" class="p-2 px-4 bg-red-500">Delete</a>
                 </td>
             </tr>
             <?php }?>
