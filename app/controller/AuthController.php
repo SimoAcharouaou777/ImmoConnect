@@ -32,7 +32,9 @@ class AuthController
     public static function AllUsers()
     {
         $allUsers = new User(null,null, null, null,null , null , null);
-        return   $allUsers->getAllUsers();
+        $users=   $allUsers->getAllUsers();
+        require_once '../../views/admin/users.php';
+
        
     }
     public static function updateUser(){
@@ -47,6 +49,14 @@ class AuthController
     public  function showUserByEmail($email){
         $userModel = new User(null , null , null , $email , null , null, null );
         return $users= $userModel->getUserByEmail($email);
+    }
+
+    public  function deleteUser(){
+
+       $id = $_GET["id"];
+        $addCity = new User($id, null, null, null, null, null, null);
+        $addCity->delete();
+        header('location:../users');
     }
 }
 

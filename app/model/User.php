@@ -103,18 +103,19 @@ class User
         $statement = $db->prepare($sql);
         if ($statement) {
             $statement->execute();
-            $resultInstances = $statement->fetchAll(PDO::FETCH_ASSOC);
-            if ($resultInstances) {
-                $users = [];
-                foreach ($resultInstances as $key => $result) {
-                    $userInstance = new User($result['id'], $result['firstname'], $result['lastname'],
-                        $result['email'], $result['password'], $result['phone'], $result['profile']);
-                    $users[] = $userInstance;
-                }
-                return $users;
-            } else {
-                return null;
-            }
+            $resultInstances = $statement->fetchAll(PDO::FETCH_OBJ);
+            return $resultInstances;
+            // if ($resultInstances) {
+            //     $users = [];
+            //     foreach ($resultInstances as $key => $result) {
+            //         $userInstance = new User($result['id'], $result['firstname'], $result['lastname'],
+            //             $result['email'], $result['password'], $result['phone'], $result['profile']);
+            //         $users[] = $userInstance;
+            //     }
+            //     return $users;
+            // } else {
+            //     return null;
+            // }
         }
     }
     public static function updateUser($id,$firstname , $lastname,$email , $password , $phone , $profile)
@@ -132,6 +133,15 @@ class User
         $statemnt->bindParam(':profile', $profile, PDO::PARAM_INT);
         $statemnt->bindParam(':id', $id, PDO::PARAM_INT);
         $statemnt->execute();
+    }
+
+
+    public function delete()
+    {
+
+        $stmt = $this->db->prepare("delete from users  where id = ? ");
+        $stmt->execute([$this->id]);
+
     }
 }
 

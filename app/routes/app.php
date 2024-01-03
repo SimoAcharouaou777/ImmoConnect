@@ -26,7 +26,8 @@ $router->setRoutes([
         'admin/delete/category' =>['CategoryController','delete'],
         'admin/edit/category' =>['CategoryController','getCategory'],
 
-        'addCity' =>['CityController','Hello'],
+        'admin/users' =>['AuthController','AllUsers'],
+        'admin/delete/user' =>['AuthController','deleteUser'],
     ],
     'POST' => [
         'submit' => ['HomeController', 'save'],
