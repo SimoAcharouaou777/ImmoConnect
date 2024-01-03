@@ -1,7 +1,6 @@
 <?php 
 require_once __DIR__.'/../partials/navbarAdmin.php';
 
-// var_dump($cities);
 ?>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg p-16 mt-16 sm:ml-64">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 p-16">

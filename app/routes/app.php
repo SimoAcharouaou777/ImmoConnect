@@ -24,12 +24,16 @@ $router->setRoutes([
 
         'admin/property' =>['PropertyController','getAllProperties'],
         'admin/edit/property' =>['PropertyController','getProperty'],
+        'admin/delete/property' =>['PropertyController','deleteProperty'],
+
     ],
     'POST' => [
         'submit' => ['HomeController', 'save'],
         'edituser' => ['AuthController','updateUser'],
         'admin/update/category' =>['CategoryController','update'],
         'admin/add/category' =>['CategoryController','add'],
+        'admin/update/property' =>['PropertyController','updateProperty'],
+
     ]
 ]);
 
