@@ -59,7 +59,7 @@ class User
     {
         $sql = "SELECT users.*, roles.name as role FROM users
         LEFT JOIN roles ON users.role_id = roles.id
-        WHERE email = :email";
+        WHERE users.email = :email";
         $statement = $this->db->prepare($sql);
         $statement->bindParam(':email', $email, PDO::PARAM_STR);
         if ($statement) {
@@ -83,7 +83,7 @@ class User
     public function createUser()
     {
 
-        $query = "INSERT INTO `users` (firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO `users` (firstname, lastname, email, password,role_id) VALUES (?, ?, ?, ?,3 )";
 
         $stmt = $this->db->prepare($query);
 
@@ -103,18 +103,19 @@ class User
         $statement = $db->prepare($sql);
         if ($statement) {
             $statement->execute();
-            $resultInstances = $statement->fetchAll(PDO::FETCH_ASSOC);
-            if ($resultInstances) {
-                $users = [];
-                foreach ($resultInstances as $key => $result) {
-                    $userInstance = new User($result['id'], $result['firstname'], $result['lastname'],
-                        $result['email'], $result['password'], $result['phone'], $result['profile']);
-                    $users[] = $userInstance;
-                }
-                return $users;
-            } else {
-                return null;
-            }
+            $resultInstances = $statement->fetchAll(PDO::FETCH_OBJ);
+            return $resultInstances;
+            // if ($resultInstances) {
+            //     $users = [];
+            //     foreach ($resultInstances as $key => $result) {
+            //         $userInstance = new User($result['id'], $result['firstname'], $result['lastname'],
+            //             $result['email'], $result['password'], $result['phone'], $result['profile']);
+            //         $users[] = $userInstance;
+            //     }
+            //     return $users;
+            // } else {
+            //     return null;
+            // }
         }
     }
     public static function updateUser($id,$firstname , $lastname,$email , $password , $phone , $profile)
@@ -133,5 +134,26 @@ class User
         $statemnt->bindParam(':id', $id, PDO::PARAM_INT);
         $statemnt->execute();
     }
+
+    public function delete()
+    {
+
+        $stmt = $this->db->prepare("delete from users  where id = ? ");
+        $stmt->execute([$this->id]);
+
+    }
+
+    public function getUserByUsername(){ 
+        $sql="SELECT r.*, r.name AS r FROM users as u
+        INNER JOIN roles as r ON r.id = u.role_id WHERE u.email =? ";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$this->email]);
+        $row = $stmt->fetch(PDO::FETCH_OBJ);
+        // $stmt->closeCursor();
+        return $row;
+        
+    }
+
+
 }
 
