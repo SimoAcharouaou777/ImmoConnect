@@ -17,6 +17,7 @@ $router->setRoutes([
         'hello' =>['AuthController','Hello'],
         'admin/city' =>['CityController','getAllCities'],
         'admin/category' =>['CategoryController','getAll'],
+        'admin/add/category' =>['CategoryController','addCategory'],
         'admin/delete/category' =>['CategoryController','delete'],
         'admin/edit/category' =>['CategoryController','getCategory'],
         'addCity' =>['CityController','Hello'],
@@ -26,7 +27,9 @@ $router->setRoutes([
     ],
     'POST' => [
         'submit' => ['HomeController', 'save'],
-        'edituser' => ['AuthController','updateUser']
+        'edituser' => ['AuthController','updateUser'],
+        'admin/update/category' =>['CategoryController','update'],
+        'admin/add/category' =>['CategoryController','add'],
     ]
 ]);
 

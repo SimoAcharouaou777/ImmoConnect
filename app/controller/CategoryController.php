@@ -10,7 +10,14 @@ session_start();
 
 class CategoryController {
 
-    public function add($name){
+    public function addCategory(){
+
+        require_once '../../views/admin/addCategory.php';
+    }
+    public function add(){
+
+        $name=$_POST['name'];
+
         if (empty($name)) {
             $_SESSION['error_name'] = "Name category is required";
         } elseif (strlen($name) < 3) {
@@ -22,6 +29,7 @@ class CategoryController {
             $category = new Category(null,$name);
             $category->createCategory();
         }
+        header('location:../category');
     }
     public function getAll(){
         $category= new Category(null,null);
@@ -29,7 +37,11 @@ class CategoryController {
         require_once '../../views/admin/category.php';
     }
 
-    public function update($id,$name){
+    public function update(){
+
+        $id=$_POST['id'];
+        $name=$_POST['name'];
+
         if (empty($name)) {
             $_SESSION['error_name'] = "Name category is required";
         } elseif (strlen($name) < 3) {
@@ -38,10 +50,11 @@ class CategoryController {
             $_SESSION['error_name'] = "";
         }
         $category= new Category($id,$name);
-        $row = $category->getCategoryById($id);
-        if($row){
+        // $row = $category->getCategoryById($id);
+        // if($row){
             $category->updateCategory();
-        }
+        // }
+        header('location:../category');
         
     }
 
