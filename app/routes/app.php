@@ -22,7 +22,8 @@ $router->setRoutes([
         'addCity' =>['CityController','Hello'],
     ],
     'POST' => [
-        'submit' => ['HomeController', 'save']
+        'submit' => ['HomeController', 'save'],
+        'edituser' => ['AuthController','updateUser']
     ]
 ]);
 

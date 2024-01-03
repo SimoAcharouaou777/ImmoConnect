@@ -40,7 +40,9 @@ class Connection
         }
 
         public function getConnect(){
-           return $this->connection;
+            return $this->connection;
         }
-
 }
+
+?>
+
