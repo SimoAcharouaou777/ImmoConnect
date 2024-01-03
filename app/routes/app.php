@@ -13,14 +13,14 @@ $router = new Router();
 $router->setRoutes([
     'GET' => [
         '' => ['HomeController', 'index'],
-        'date' => ['HomeController', 'displayDate'],
-        'hello' =>['AuthController','Hello'],
+        'Profile' => ['ProfileController', 'index'],
         'admin/city' =>['CityController','getAllCities'],
         'admin/category' =>['CategoryController','getAll'],
-        'addCity' =>['CityController','Hello'],
+        'addCity' =>['CityController','Hello']
     ],
     'POST' => [
-        'submit' => ['HomeController', 'save']
+        'submit' => ['HomeController', 'save'],
+        'edituser' => ['AuthController','updateUser']
     ]
 ]);
 
