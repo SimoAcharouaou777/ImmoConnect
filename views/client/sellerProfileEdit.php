@@ -2,7 +2,7 @@
  require_once '../../views/partials/sellerProfile.php';
  use app\controller\AuthController;
 $email ="dixununyry@mailinator.com";
-$userdata = User::getUserByEmail($email);
+$userdata = AuthController::showUserByEmail($email);
 
 ?>
 
