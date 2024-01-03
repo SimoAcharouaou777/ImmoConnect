@@ -6,16 +6,6 @@ include __DIR__ . '/../../vendor/autoload.php';
 
 use app\model\City;
 
-// session_start();
-
-
-
-// spl_autoload_register(function ($class) {
-//     include  __DIR__ .'/../'.$class.'.php'; 
-// });
-
-
-
 
 
 

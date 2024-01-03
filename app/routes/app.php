@@ -26,6 +26,9 @@ $router->setRoutes([
         'admin/add/category' =>['CategoryController','addCategory'],
         'admin/delete/category' =>['CategoryController','delete'],
         'admin/edit/category' =>['CategoryController','getCategory'],
+        
+        'admin/users' =>['AuthController','AllUsers'],
+        'admin/delete/user' =>['AuthController','deleteUser'],
 
         'login' => ['RouterAuthrnfication','indexlogin'],
         'register'=>['RouterAuthrnfication','indexregister'],

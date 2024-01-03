@@ -70,7 +70,9 @@ class AuthController
     public static function AllUsers()
     {
         $allUsers = new User(null,null, null, null,null , null , null);
-        return   $allUsers->getAllUsers();
+        $users=   $allUsers->getAllUsers();
+        require_once '../../views/admin/users.php';
+
        
     }
     public static function updateUser(){
@@ -87,21 +89,24 @@ class AuthController
         return $users= $userModel->getUserByEmail($email);
     }
 
+
+    
+    public  function deleteUser(){
+       $id = $_GET["id"]; 
+        $addCity = new User($id, null, null, null, null, null, null);
+        $addCity->delete();
+        header('location:../users');
+
+    }
+
 }
 
 
 
 
- if (isset($_POST['submit_register'])) {
-        $auth = new AuthController();
-        $auth->register($_POST["firstname"],$_POST["lastname"],$_POST["email"],$_POST["password"]);
-    }
 
-    if (isset($_POST['login_submit'])) {
-        $auth = new AuthController();
-        $res= $auth->login($_POST["email"],$_POST["password"]);
-        // var_dump($res);
-    }
+
+   
 
 
 
