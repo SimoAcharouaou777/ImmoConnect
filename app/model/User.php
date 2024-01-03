@@ -55,7 +55,7 @@ class User
         $this->phone = $phone;
         $this->profile = $profile;
     }
-    public static function getUserByEmail($email)
+    public  function getUserByEmail($email)
     {
         $sql = "SELECT users.*, roles.name FROM users WHERE email = :email
         INNER JOIN roles ON users.role_id = roles.id";
