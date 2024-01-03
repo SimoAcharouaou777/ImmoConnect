@@ -5,6 +5,7 @@ namespace app\model;
 include __DIR__ . '/../../vendor/autoload.php';
 
 use app\connection\Connection;
+ 
 
 class User
 {
@@ -95,8 +96,7 @@ class User
                 $stmt->bindParam(3, $this->email);
                 $stmt->bindParam(4, $this->password);
                 $stmt->execute();
-           
-
+        
 
     }
     
