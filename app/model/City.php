@@ -49,7 +49,7 @@ class City
     public function getCityById()
     {
 
-        $stmt = $this->db->prepare("select * from  users where id = ? ");
+        $stmt = $this->db->prepare("select * from  cities where id = ? ");
         $stmt->execute([$this->id]);
         $result = $stmt->fetch(PDO::FETCH_OBJ);
         return $result;

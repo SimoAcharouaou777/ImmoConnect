@@ -4,6 +4,8 @@ require_once __DIR__.'/../partials/navbarAdmin.php';
 var_dump($cities);
 ?>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg p-16 mt-16 sm:ml-64">
+<a href="add/city" class="px-5 p-2  bg-blue-600">add</a>
+
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 p-16">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -28,8 +30,8 @@ var_dump($cities);
                 <?=$city->name?>
                 </td>
                 <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
+                    <a href="edit/city?id=<?=$city->id?>" class="p-2 px-4 bg-green-500">Edit</a>
+                    <a href="delete/city?id=<?=$city->id?>" class="p-2 px-4 bg-red-500">Delete</a>
                 </td>
             </tr>
             <?php }?>
