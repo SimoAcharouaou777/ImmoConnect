@@ -57,27 +57,28 @@ class User
     }
     public  function getUserByEmail($email)
     {
-        $sql = "SELECT users.*, roles.name FROM users WHERE email = :email
-        INNER JOIN roles ON users.role_id = roles.id";
+        $sql = "SELECT users.*, roles.name as role FROM users
+        LEFT JOIN roles ON users.role_id = roles.id
+        WHERE users.email = :email";
         $statement = $this->db->prepare($sql);
         $statement->bindParam(':email', $email, PDO::PARAM_STR);
         if ($statement) {
             $statement->execute();
             $resultInstances = $statement->fetchAll(PDO::FETCH_ASSOC);
-            if ($resultInstances) {
-                $users = [];
-                foreach ($resultInstances as $key => $result) {
-                    $userInstance = new User($result['id'], $result['firstname'], $result['fullname'],
-                        $result['email'], $result['password'], $result['phone'], $result['profile']);
-                    $users[] = $userInstance;
-                }
-                return $users;
+            // if ($resultInstances) {
+            //     $users = [];
+            //     foreach ($resultInstances as $key => $result) {
+            //         $userInstance = new User($result['id'], $result['firstname'], $result['lastname'],
+            //             $result['email'], $result['password'], $result['phone'], $result['profile']);
+            //         $users[] = $userInstance;
+            //     }
+                return $resultInstances;
             } else {
                 return null;
             }
         }
 
-    }
+    
 
     public function createUser()
     {
@@ -135,12 +136,11 @@ class User
 
 
     public function getUserByUsername(){ 
-        $sql="SELECT users.*, roles.name AS role_name FROM users
-        INNER JOIN roles ON roles.id = users.role_id WHERE email = ? ";
+        $sql="SELECT r.*, r.name AS r FROM users as u
+        INNER JOIN roles as r ON r.id = u.role_id WHERE u.email =? ";
         $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(1, $this->email);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->execute([$this->email]);
+        $row = $stmt->fetch(PDO::FETCH_OBJ);
         // $stmt->closeCursor();
         return $row;
         
