@@ -47,11 +47,14 @@ class Category
     }
 
     public function getCategoryById($id){
+
         $query = "SELECT * from categories where id =?";
         $stmt = $this->db->prepare($query);
         $stmt->execute([$id]);
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $row = $stmt->fetch(PDO::FETCH_OBJ);
         return $row;
+
+      
     }
 
     public function getCategories()

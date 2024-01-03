@@ -45,9 +45,20 @@ class CategoryController {
         
     }
 
-    public function delete($id){
+    public function delete(){
+        $id=$_GET["id"];
         $category = new Category($id,null);
         $category->deleteCategory($id);
+        header('location:../category');
+
+    }
+
+    public function getCategory()
+    {
+        $id=$_GET['id'];
+        $category = new Category($id, null);
+        $cat= $category->getCategoryById($id);
+        require_once '../../views/admin/categoryEdit.php';
     }
 
 }
