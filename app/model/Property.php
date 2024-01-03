@@ -189,50 +189,65 @@ class Property {
          $stmt->execute();       
     }
 
+    public function getPropertyById()
+{
+    $query = "SELECT p.*, u.firstName AS firstName, ca.name AS category_name, c.name AS city_name 
+        FROM properties p 
+        JOIN users u ON u.id = p.seller_id
+        JOIN cities c ON c.id = p.city_id
+        JOIN categories ca ON ca.id = p.category_id
+        WHERE p.id = :id";
+
+    $stmt = $this->db->prepare($query);
+    $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
+    return $row;
+}
 
+public function updateProperty(){
+    $query = "UPDATE properties
+    SET address = :address, imageA = :imageA, imageB = :imageB, imageC = :imageC, imageD = :imageD, imageE = :imageE, description = :description, bathroom = :bathroom, room = :room, garage = :garage, size = :size, city_id = :city_id, category_id = :category_id, seller_id = :seller_id
+    WHERE id = :id";
+    $stmt = $this->db->prepare($query);
 
-    public function getPropertyById($id){
-        $query = "SELECT * from properties where id =?";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute([$id]);
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $row;
+    $stmt->bindParam(':address', $this->address);
+    $stmt->bindParam(':imageA', $this->imageA);
+    $stmt->bindParam(':imageB', $this->imageB);
+    $stmt->bindParam(':imageC', $this->imageC);
+    $stmt->bindParam(':imageD', $this->imageD);
+    $stmt->bindParam(':imageE', $this->imageE);
+    $stmt->bindParam(':description', $this->description);
+    $stmt->bindParam(':bathroom', $this->bathroom);
+    $stmt->bindParam(':room', $this->room);
+    $stmt->bindParam(':garage', $this->garage);
+    $stmt->bindParam(':size', $this->size);
+    $stmt->bindParam(':city_id', $this->city_id);
+    $stmt->bindParam(':category_id', $this->category_id);
+    $stmt->bindParam(':seller_id', $this->seller_id);
+    $stmt->bindParam(':id', $this->id);
+
+    if ($stmt->execute()) {
+        return 'true'; // Succès de la mise à jour
+    } else {
+        return 'false'; // Échec de la mise à jour
     }
+}
 
-    public function updateProperty(){
-        $query = "UPDATE properties
-        SET address = :address, imageA = :imageA, imageB = :imageB, imageC = :imageC, imageD = :imageD, imageE = :imageE, description = :description, bathroom = :bathroom, room = :room, garage = :garage, size = :size, city_id = :city_id, category_id = :category_id, seller_id = :seller_id
-        WHERE id = :id";
-        $stmt = $this->db->prepare($query);
-       
-        $stmt->bindParam(':address', $this->address);
-        $stmt->bindParam(':imageA', $this->imageA);
-        $stmt->bindParam(':imageB', $this->imageB);
-        $stmt->bindParam(':imageC', $this->imageC);
-        $stmt->bindParam(':imageD', $this->imageD);
-        $stmt->bindParam(':imageE', $this->imageE);
-        $stmt->bindParam(':description', $this->description);
-        $stmt->bindParam(':bathroom', $this->bathroom);
-        $stmt->bindParam(':room', $this->room);
-        $stmt->bindParam(':garage', $this->garage);
-        $stmt->bindParam(':size', $this->size);
-        $stmt->bindParam(':city_id', $this->city_id);
-        $stmt->bindParam(':category_id', $this->category_id);
-        $stmt->bindParam(':seller_id', $this->seller_id);
-        $stmt->bindParam(':id', $this->id);
-        
-        $stmt->execute();
-    
-    }
+    public function getProperties()
+{
+    $stmt = $this->db->prepare("SELECT p.*, u.firstName as firstName, u.lastName as lastName, ca.name AS category_name, c.name AS city_name 
+        FROM properties p 
+        JOIN users u ON u.id = p.seller_id
+        JOIN cities c ON c.id = p.city_id
+        JOIN categories ca ON ca.id = p.category_id");
 
-    public function getproperties()
-    {
-        $stmt = $this->db->prepare("SELECT * from  properties");
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
-        return $result;
-    }
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
 
 
 

@@ -34,6 +34,11 @@ $router->setRoutes([
         'register'=>['RouterAuthrnfication','indexregister'],
 
         'addCity' =>['CityController','Hello'],
+
+        'admin/property' =>['PropertyController','getAllProperties'],
+        'admin/edit/property' =>['PropertyController','getProperty'],
+        'admin/delete/property' =>['PropertyController','deleteProperty'],
+
     ],
     'POST' => [
         'submit' => ['HomeController', 'save'],
@@ -41,6 +46,7 @@ $router->setRoutes([
 
         'admin/update/category' =>['CategoryController','update'],
         'admin/add/category' =>['CategoryController','add'],
+        'admin/update/property' =>['PropertyController','updateProperty'],
 
         'admin/update/city' =>['CityController','updateCity'],
         'admin/add/city' =>['CityController','add'],
