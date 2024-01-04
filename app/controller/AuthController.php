@@ -30,38 +30,39 @@ class AuthController
         $_SESSION['lastname']=$lastname;
         $_SESSION['password']= $password;
       
-        header('location:../admin/city');  
+        header('location:../login   ');  
     }
 
 
     public function login()
     {
 
-        $email=$_POST['email'];
-        $id = $_POST['id'];
-        $password=$_POST['password'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
         if(empty($email) || empty($password)){
             echo"von avez pas enregistrer le nom et prenom";
         }else {
             $obj= new User(null,null,null,$email,$password,null,null);
             $data=$obj->getUserByUsername();
+           
 
         }
         
             if (empty($data)) {
                 echo"email not on data base";
-            }elseif(password_verify($password,$data['password'])){
+            }elseif(password_verify($password,$data->password)){
+                
                 $_SESSION['email'] = $email;
-                $_SESSION['role'] = $data['rolename'];
-                $_SESSION['id'] = $id;
-                if ($data['role_name']=='admin') {
+                $_SESSION['role'] = $data->role_name;
+                if ($data->role_name=='admin') {
                     echo"admin";
                     
-                    }elseif($data['role_name']=='user'){
+                    }elseif($data->role_name=='user'){
                     echo"user";
 
-                    }elseif($data['role_name']=='seller'){
+                    }elseif($data->role_name=='seller'){
                     echo"seller";
+                     header('location:../Profile');
                 }   
             }
       }
@@ -81,8 +82,10 @@ class AuthController
         $email = $_POST["email"];
         $phone = $_POST['phone'];
         $profile = $_POST['profile'];
-        User::updateUser($id, $firstname, $lastname, $email, null, $phone, $profile);
-        header("location:Profile");
+        $emailHiden = $_POST['emailHiden'];
+        
+        User::updateUser($id, $firstname, $lastname, $email, null, $phone, $profile,$emailHiden);
+        header('location:../../Profile');
     }
    
       
@@ -91,8 +94,7 @@ class AuthController
     public  function showUserByEmail(){
         $email = $_SESSION['email'];
         $userModel = new User(null , null , null , $email , null , null, null );
-         $user= $userModel->getUserByEmail($email);
-
+        $user = $userModel->getUserByEmail($email)[0];
         include '../../views/client/sellerProfileEdit.php';
     }
 
@@ -101,7 +103,7 @@ class AuthController
 
 
 
- if (isset($_POST['submit_register'])) {
+    if (isset($_POST['submit_register'])) {
         $auth = new AuthController();
         $auth->register($_POST["firstname"],$_POST["lastname"],$_POST["email"],$_POST["password"]);
     }

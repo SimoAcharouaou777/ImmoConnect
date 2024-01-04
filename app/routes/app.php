@@ -13,7 +13,6 @@ $router = new Router();
 $router->setRoutes([
     'GET' => [
         '' => ['HomeController', 'index'],
-        'Profile' => ['ProfileController', 'index'],
         'date' => ['HomeController', 'displayDate'],
         'hello' =>['AuthController','Hello'],
 

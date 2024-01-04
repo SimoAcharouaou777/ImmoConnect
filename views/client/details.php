@@ -66,7 +66,7 @@ require_once(__DIR__ . '/../partials/navbar.php');
     </div>
 
     <div class=" bgColor1 mt-10 p-5">
-        <form>
+        <form method ="POST" action="">
         <span class="text-3xl mx-auto block text-center my-6 ">Add Comment </span>
             <textarea class="resize-none rounded-md w-4/5 block mx-auto bgColor1  " rows="4" > add  your comment  here </textarea>
             <input type="submit" value="Comment" class="bgColor2 p-2  mt-5 mx-auto block w-3/5  color1 rounded-md" />
