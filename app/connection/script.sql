@@ -82,9 +82,11 @@ CREATE TABLE reservations(
 )
 
 
+
 CREATE TABLE comments(
     id int PRIMARY KEY AUTO_INCREMENT,
     comment VARCHAR(255),
+    date date  DEFAULT CURRENT_DATE,
     annonce_id int,
     user_id int,
     Foreign Key (annonce_id) REFERENCES annonces(id) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -95,6 +97,7 @@ CREATE TABLE comments(
 CREATE TABLE messages(
     id int PRIMARY KEY AUTO_INCREMENT,
     message VARCHAR(255),
+    date date  DEFAULT CURRENT_DATE,
     reciver_id int,
     transmitter_id int,
     Foreign Key (reciver_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -104,6 +107,7 @@ CREATE TABLE messages(
 CREATE TABLE replies(
     id int PRIMARY KEY AUTO_INCREMENT,
     message VARCHAR(255),
+    date date  DEFAULT CURRENT_DATE,
     reciver_id int,
     transmitter_id int,
     message_id int,

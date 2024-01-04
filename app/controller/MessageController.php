@@ -9,5 +9,5 @@ use app\model\Message;
 use app\model\User;
 
 class MessageController{
-   
+}
 ?>
