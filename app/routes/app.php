@@ -13,7 +13,8 @@ $router = new Router();
 $router->setRoutes([
     'GET' => [
         '' => ['HomeController', 'index'],
-        'date' => ['HomeController', 'displayDate'],
+        'user/client/landing' => ['AuthController', 'landing'],
+        'user/client/detail/annonce' => ['AnnonceController', 'detail'],
         'hello' =>['AuthController','Hello'],
 
 
@@ -59,7 +60,8 @@ $router->setRoutes([
         'details' =>['DetailsController','details'],
 
         'user/login' =>['AuthController','login'],
-        'user/register'=>['AuthController','Register']
+        'user/register'=>['AuthController','Register'],
+        'UserComment/Controller' =>['CommentController','']
 
     ]
 ]);

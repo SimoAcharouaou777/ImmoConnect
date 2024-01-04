@@ -48,63 +48,27 @@ require_once(__DIR__ . '/../partials/navbar.php');
     <div class="flex flex-col items-center gap-16 flex-wrap">
         <h1 class="text-center text-4xl font-bold">Our choice of popular real estate</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center ">
-
+                <?php foreach($annonces as $ann){?>
             <div class="max-w-sm bgColor1 border shadow-lg border-gray-300 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
+                <a href="detail/annonce?id=<?= $ann->annId ?>">
                     <img class="rounded-t-lg" src="/immoconnect/public/imgs/img5.jpg" alt="" />
                 </a>
                 <div class="p-5">
-                    <p><i class="fa-solid fa-location-dot"></i> House - Rabat</p>
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">South Sun House</h5>
+                    <p><i class="fa-solid fa-location-dot"></i> <?= $ann->category ?> - <?= $ann->city ?></p>
+                    <a href="detail/annonce?id=<?= $ann->annId ?>">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?= $ann->title ?></h5>
                     </a>
-                    <p class=" font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                    <p class=" font-normal text-gray-700 dark:text-gray-400"><?= $ann->description ?></p>
                 </div>
                 <div class="flex justify-around pb-6 text-lg" >
-                    <span>2000 <i class="fa-solid fa-dollar-sign"></i></span>
-                    <span><i class="fa-solid fa-ruler-combined"></i> 255 m²</span>
-                    <span><i class="fa-solid fa-bath"></i> 2</span>
-                    <span><i class="fa-solid fa-bed"></i> 4</span>
+                    <span><?= $ann->price ?>$<i class="fa-solid fa-dollar-sign"></i></span>
+                    <span><i class="fa-solid fa-ruler-combined"></i><?= $ann->size ?> m²</span>
+                    <span><i class="fa-solid fa-bath"></i><?= $ann->bathroom ?></span>
+                    <span><i class="fa-solid fa-bed"></i><?= $ann->room ?></span>
                 </div>
             </div>
+            <?php }?>
         
-            <div class="max-w-sm bgColor1 border shadow-lg border-gray-300 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="/immoconnect/public/imgs/img5.jpg" alt="" />
-                </a>
-                <div class="p-5">
-                    <p><i class="fa-solid fa-location-dot"></i> House - Rabat</p>
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">South Sun House</h5>
-                    </a>
-                    <p class=" font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                </div>
-                <div class="flex justify-around pb-6 text-lg" >
-                    <span>2000 <i class="fa-solid fa-dollar-sign"></i></span>
-                    <span><i class="fa-solid fa-ruler-combined"></i> 255 m²</span>
-                    <span><i class="fa-solid fa-bath"></i> 2</span>
-                    <span><i class="fa-solid fa-bed"></i> 4</span>
-                </div>
-            </div>
-
-            <div class="max-w-sm bgColor1 border shadow-lg border-gray-300 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="/immoconnect/public/imgs/img5.jpg" alt="" />
-                </a>
-                <div class="p-5">
-                    <p><i class="fa-solid fa-location-dot"></i> House - Rabat</p>
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">South Sun House</h5>
-                    </a>
-                    <p class=" font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                </div>
-                <div class="flex justify-around pb-6 text-lg" >
-                    <span>2000 <i class="fa-solid fa-dollar-sign"></i></span>
-                    <span><i class="fa-solid fa-ruler-combined"></i> 255 m²</span>
-                    <span><i class="fa-solid fa-bath"></i> 2</span>
-                    <span><i class="fa-solid fa-bed"></i> 4</span>
-                </div>
-            </div>
 
         </div>
         <div>

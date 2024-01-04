@@ -6,12 +6,20 @@ namespace app\controller;
 include __DIR__ . '/../../vendor/autoload.php';
 
 use app\model\User;
+use app\model\Annonce;
 
 session_start();
 
 
 class AuthController
 {
+
+    public function landing(){
+      
+        $annonce = new Annonce(null, null,null,null,null,null);
+         $annonces = $annonce->getAnnonces();
+        include "../../views/client/landing.php";
+    }
 
 
     public function Register()
@@ -59,7 +67,7 @@ class AuthController
                     
                     }elseif($data->role_name=='user'){
                     echo"user";
-
+                        header('location: client/landing');
                     }elseif($data->role_name=='seller'){
                     echo"seller";
                      header('location:../Profile');
