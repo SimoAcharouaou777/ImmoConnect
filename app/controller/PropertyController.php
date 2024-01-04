@@ -58,7 +58,6 @@ class PropertyController{
     
     public function updateProperty()
     {
-
         $id = $_POST['id'];
         $address = $_POST['address'];
         $description = $_POST['description'];
