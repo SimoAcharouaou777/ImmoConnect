@@ -8,7 +8,14 @@ use  app\model\Annonce;
 
 session_start();
 
-class CategoryController {
+class AnnonceController {
+
+    public function detail(){
+        $id = $_GET['id'];
+        $annonce = new Annonce($id, null ,null,null,null,null);
+        $ann = $annonce->getAnnonceById();
+        include "../../views/client/details.php";
+    }
 
     public function addAnnonce(){
 
