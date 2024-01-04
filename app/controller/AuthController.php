@@ -97,6 +97,12 @@ class AuthController
         $user = $userModel->getUserByEmail($email)[0];
         include '../../views/client/sellerProfileEdit.php';
     }
+    public  function deleteUser(){
+        $id = $_GET["id"]; 
+         $user = new User($id, null, null, null, null, null, null);
+         $user->delete();
+         header('location:../users');
+     }
 
 }
 
@@ -113,8 +119,3 @@ class AuthController
         $res= $auth->login($_POST["email"],$_POST["password"]);
         // var_dump($res);
     }
-
-
-
-
-

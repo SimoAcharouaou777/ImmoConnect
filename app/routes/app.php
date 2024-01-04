@@ -26,6 +26,9 @@ $router->setRoutes([
         'admin/add/category' =>['CategoryController','addCategory'],
         'admin/delete/category' =>['CategoryController','delete'],
         'admin/edit/category' =>['CategoryController','getCategory'],
+        
+        'admin/users' =>['AuthController','AllUsers'],
+        'admin/delete/user' =>['AuthController','deleteUser'],
 
         'login' => ['RouterAuthrnfication','indexlogin'],
         'register'=>['RouterAuthrnfication','indexregister'],
@@ -33,7 +36,12 @@ $router->setRoutes([
         'addCity' =>['CityController','Hello'],
         'Profile' => ['AuthController','showUserByEmail'],
         'landing' => ['LandingController','landing'],
-        'details' =>['DetailsController','details']
+        'details' =>['DetailsController','details'],
+
+        'admin/property' =>['PropertyController','getAllProperties'],
+        'admin/edit/property' =>['PropertyController','getProperty'],
+        'admin/delete/property' =>['PropertyController','deleteProperty'],
+
     ],
     'POST' => [
         'submit' => ['HomeController', 'save'],
@@ -42,9 +50,13 @@ $router->setRoutes([
         
         'admin/update/category' =>['CategoryController','update'],
         'admin/add/category' =>['CategoryController','add'],
+        'admin/update/property' =>['PropertyController','updateProperty'],
 
         'admin/update/city' =>['CityController','updateCity'],
         'admin/add/city' =>['CityController','add'],
+        'Profile' => ['AuthController','showUserByEmail'],
+        'landing' => ['LandingController','landing'],
+        'details' =>['DetailsController','details'],
 
         'user/login' =>['AuthController','login'],
         'user/register'=>['AuthController','Register']
