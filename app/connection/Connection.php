@@ -27,10 +27,11 @@ class Connection
             // Check connection
             if (!$this->connection) {
                 die("Connection failed: " . mysqli_connect_error());
-            }else{
-                echo"donnnnnnnnnnne";
-                // return $connection;
-            }
+             }
+            // else{
+            //     echo"donnnnnnnnnnne";
+            //     // return $connection;
+            // }
         }
         public static function getInstence(){
             if(!isset(self::$instance)){

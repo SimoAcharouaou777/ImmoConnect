@@ -61,7 +61,7 @@ $router->setRoutes([
 
         'user/login' =>['AuthController','login'],
         'user/register'=>['AuthController','Register'],
-        'UserComment/Controller' =>['CommentController','']
+        'UserComment/Controller' =>['CommentController','creatComment']
 
     ]
 ]);

@@ -5,6 +5,7 @@ namespace app\controller;
 include __DIR__ . '/../../vendor/autoload.php';
 
 use  app\model\Annonce;
+use  app\model\Comment;
 
 session_start();
 
@@ -14,6 +15,8 @@ class AnnonceController {
         $id = $_GET['id'];
         $annonce = new Annonce($id, null ,null,null,null,null);
         $ann = $annonce->getAnnonceById();
+        $commentModel = new Comment(null, $id, null);
+        $comments = $commentModel->getComments();
         include "../../views/client/details.php";
     }
 

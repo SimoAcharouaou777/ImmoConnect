@@ -1,6 +1,8 @@
 <?php
 
 require_once(__DIR__ . '/../partials/navbar.php');
+
+
 ?>
 <section class="p-10 m-10">
     <div class="md:flex flex-row gap-4 ">
@@ -66,10 +68,13 @@ require_once(__DIR__ . '/../partials/navbar.php');
     </div>
 
     <div class=" bgColor1 mt-10 p-5">
-        <form method ="POST" action="UserComment/Controller">
+        <form method ="POST" action="../../../UserComment/Controller">
         <span class="text-3xl mx-auto block text-center my-6 ">Add Comment </span>
-            <textarea class="resize-none rounded-md w-4/5 block mx-auto bgColor1  " rows="4" > add  your comment  here </textarea>
+        <input type="hidden" name="userid" value="<?=$_SESSION['id'] ?>">
+        <input type="hidden" name="annonceid" value="<?= $ann->annId?>">
+            <textarea class="resize-none rounded-md w-4/5 block mx-auto bgColor1  " name="comment" rows="4" > add  your comment  here </textarea>
             <input type="submit" value="Comment" class="bgColor2 p-2  mt-5 mx-auto block w-3/5  color1 rounded-md" />
+
         </form>
     </div>
 
@@ -79,58 +84,25 @@ require_once(__DIR__ . '/../partials/navbar.php');
 
 
 <div class="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2 bg-white dark:bg-gray-800">
-    <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-ss-lg md:border-e dark:bg-gray-800 dark:border-gray-700">
-    <figcaption class="flex items-center justify-center ">
-            <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="profile picture">
-            <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                <div>Bonnie Green</div>
-                <div class="text-sm text-gray-500 dark:text-gray-400 ">Developer at Open AI</div>
-            </div>
-        </figcaption>  
-        <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-            <p class="my-4">If you care for your time, I hands down would go with this."</p>
-        </blockquote>
-    </figure>
 
-    <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-se-lg dark:bg-gray-800 dark:border-gray-700">
-    <figcaption class="flex items-center justify-center ">
-            <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png" alt="profile picture">
-            <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                <div>Roberta Casas</div>
-                <div class="text-sm text-gray-500 dark:text-gray-400">Lead designer at Dropbox</div>
-            </div>
-        </figcaption>  
-        <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-            <p class="my-4">Designing with Figma components that can be easily translated to the utility classes of Tailwind CSS is a huge timesaver!"</p>
-        </blockquote>
-        
-    </figure>
-    <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-es-lg md:border-b-0 md:border-e dark:bg-gray-800 dark:border-gray-700">
-       
-        <figcaption class="flex items-center justify-center ">
-            <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="profile picture">
-            <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                <div>Jese Leos</div>
-                <div class="text-sm text-gray-500 dark:text-gray-400">Software Engineer at Facebook</div>
-            </div>
-        </figcaption>   
-        <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-            <p class="my-4">Aesthetically, the well designed components are beautiful and will undoubtedly level up your next application."</p>
-        </blockquote> 
-    </figure>
-    <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-gray-200 rounded-b-lg md:rounded-se-lg dark:bg-gray-800 dark:border-gray-700">
+<?php foreach($comments as $comm) {?>
+
+    <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-ss-lg md:border-e dark:bg-gray-800 dark:border-gray-700">
    
         <figcaption class="flex items-center justify-center ">
-            <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="profile picture">
+            <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="profile picture">
+           
             <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                <div>Joseph McFall</div>
-                <div class="text-sm text-gray-500 dark:text-gray-400">CTO at Google</div>
+                <div><?= $comm->firstname?></div>
+                <div class="text-sm text-gray-500 dark:text-gray-400 "><?= $comm->rolename?></div>
             </div>
         </figcaption>  
         <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-            <p class="my-4">You have many examples that can be used to create a fast prototype for your team."</p>
-        </blockquote>  
+            <p class="my-4"><?= $comm->comment?></p>
+        </blockquote>
+       
     </figure>
+    <?php }?>
 </div>
 
 <?php
