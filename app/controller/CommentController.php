@@ -21,7 +21,7 @@ class CommentController{
     }
     public function getAllComments(){
         $id = $_GET['id'];
-        $comment= new Comment($id,null,null,null,null,null);
+        $comment= new Comment($id,null,null);
         $comment= $comment->getComments();
         require_once '../../views/admin/annonce.php';
     }
