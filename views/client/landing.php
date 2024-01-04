@@ -1,6 +1,7 @@
 <?php
 
-require_once '../partials/navbar.php';
+require_once(__DIR__ . '/../partials/navbar.php');
+
 ?>
 
     <section class=" w-full h-5/6 z-0 ">
@@ -163,5 +164,5 @@ require_once '../partials/navbar.php';
 
 <?php
 
-require_once '../partials/footer.php';
+require_once (__DIR__.'/../partials/footer.php');
 ?>

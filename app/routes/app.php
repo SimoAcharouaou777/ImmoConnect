@@ -13,7 +13,6 @@ $router = new Router();
 $router->setRoutes([
     'GET' => [
         '' => ['HomeController', 'index'],
-        'Profile' => ['ProfileController', 'index'],
         'date' => ['HomeController', 'displayDate'],
         'hello' =>['AuthController','Hello'],
 
@@ -22,6 +21,7 @@ $router->setRoutes([
         'admin/add/city' =>['CityController','addCity'],
         'admin/delete/city' =>['CityController','deleteCity'],
         'admin/edit/city' =>['CityController','getCity'],
+
         'admin/category' =>['CategoryController','getAll'],
         'admin/add/category' =>['CategoryController','addCategory'],
         'admin/delete/category' =>['CategoryController','delete'],
@@ -34,6 +34,9 @@ $router->setRoutes([
         'register'=>['RouterAuthrnfication','indexregister'],
 
         'addCity' =>['CityController','Hello'],
+        'Profile' => ['AuthController','showUserByEmail'],
+        'landing' => ['LandingController','landing'],
+        'details' =>['DetailsController','details'],
 
         'admin/property' =>['PropertyController','getAllProperties'],
         'admin/edit/property' =>['PropertyController','getProperty'],
@@ -43,13 +46,17 @@ $router->setRoutes([
     'POST' => [
         'submit' => ['HomeController', 'save'],
         'edituser' => ['AuthController','updateUser'],
-
+        'user/updtae/profile' => ['AuthController','updateUser'],
+        
         'admin/update/category' =>['CategoryController','update'],
         'admin/add/category' =>['CategoryController','add'],
         'admin/update/property' =>['PropertyController','updateProperty'],
 
         'admin/update/city' =>['CityController','updateCity'],
         'admin/add/city' =>['CityController','add'],
+        'Profile' => ['AuthController','showUserByEmail'],
+        'landing' => ['LandingController','landing'],
+        'details' =>['DetailsController','details'],
 
         'user/login' =>['AuthController','login'],
         'user/register'=>['AuthController','Register']
