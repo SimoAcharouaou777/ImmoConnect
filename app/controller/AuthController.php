@@ -93,7 +93,7 @@ class AuthController
         $profile = $_POST['profile'];
         $emailHiden = $_POST['emailHiden'];
         
-        User::updateUser($id, $firstname, $lastname, $email, null, $phone, $profile,$emailHiden);
+        User::updateUser($id, $firstname, $lastname, $email, $password, $phone, $profile,$emailHiden);
         header('location:../../Profile');
     }
    

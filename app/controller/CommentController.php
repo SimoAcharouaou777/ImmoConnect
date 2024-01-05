@@ -15,7 +15,7 @@ class CommentController{
         $userid = $_POST['userid'];
         $annonceid= $_POST['annonceid'];
         $comment = new Comment($comment,$annonceid ,$userid);
-        $comment = $comment->createComment();
+        $comment->createComment();
 
         header("Location:../user/client/detail/annonce?id=$annonceid") ;
     }

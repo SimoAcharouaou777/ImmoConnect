@@ -76,7 +76,7 @@ class User
     public function createUser()
     {
 
-        $query = "INSERT INTO `users` (firstname, lastname, email, password,role_id) VALUES (?, ?, ?, ?,3 )";
+        $query = "INSERT INTO `users` (firstname, lastname, email, password,role_id,profile) VALUES (?, ?, ?, ?,3,? )";
 
         $stmt = $this->db->prepare($query);
 
@@ -84,6 +84,7 @@ class User
         $stmt->bindParam(2, $this->lastname);
         $stmt->bindParam(3, $this->email);
         $stmt->bindParam(4, $this->password);
+        $stmt->bindParam(6, $this->profile);
         $stmt->execute();
 
     }
@@ -114,6 +115,7 @@ class User
     public static function updateUser($id,$firstname , $lastname,$email , $password , $phone , $profile,$emailHiden)
     {
         $db = Connection::getInstence()->getConnect();
+        $hashpass = password_hash($password,PASSWORD_DEFAULT);
         $select = "SELECT * FROM users WHERE email = ?";
         $statemnt2 = $db->prepare($select);
         $statemnt2->execute([$emailHiden]);
@@ -125,7 +127,7 @@ class User
         $statemnt->bindParam(':firstname', $firstname, PDO::PARAM_STR);
         $statemnt->bindParam(':lastname', $lastname, PDO::PARAM_STR);
         $statemnt->bindParam(':email', $email, PDO::PARAM_STR);
-        $statemnt->bindParam(':password', $password, PDO::PARAM_STR);
+        $statemnt->bindParam(':password', $hashpass, PDO::PARAM_STR);
         $statemnt->bindParam(':phone', $phone, PDO::PARAM_INT);
         $statemnt->bindParam(':profile', $profile, PDO::PARAM_INT);
         $statemnt->bindParam(':idUser', $idUser, PDO::PARAM_INT);

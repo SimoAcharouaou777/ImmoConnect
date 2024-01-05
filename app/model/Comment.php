@@ -54,7 +54,7 @@ class Comment{
 
     public function getAllComments() {
         $stmt = $this->db->prepare("SELECT comments.* , users.*  , roles.name as rolename
-            FROM commments
+            FROM comments
             INNER JOIN annonces ON annonces.id = comments.annonce_id
             INNER JOIN users ON users.id = comments.user_id
             INNER JOIN roles  ON roles.id = users.id");
